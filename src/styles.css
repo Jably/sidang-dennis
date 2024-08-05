@@ -1,0 +1,1422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure consistent box-sizing */
+    height: 100%;
+  }
+
+  body{
+    background-color: rgb(255, 251, 189);
+  }
+  .container {
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* Position relative for absolute children */
+    overflow: hidden; /* Prevent overflow from expanding */
+  }
+  .box {
+    border-radius: 20px;
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    box-shadow: 0 0 0 #cccccc,
+                0 0 0 #ffffff,
+                10px 10px 10px #cccccc inset,
+                -10px -10px 10px #ffffff inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .box .fas {
+    font-size: 16px; /* Customize the size of the play icon */
+    color: #333;
+    position: absolute;
+    top: 85%; /* Adjust the vertical position */
+    left: 50%; /* Adjust the horizontal position */
+    transform: translate(-50%, -50%); /* Center the icon */
+  }
+
+  .judul {
+    color: #333;
+    height: auto;
+    position: absolute;
+    top: 40px;
+    left: 50%; /* Adjust the horizontal position */
+    transform: translate(-50%, -50%); /* Center the text */
+    opacity: 0; /* Start with text hidden */
+    transition: opacity 0.5s ease-in; /* Fade-in effect */
+    display: none; /* Start with title text hidden */
+  }
+
+  .paragraf {
+    color: #333;
+    height: auto;
+    position: absolute;
+    font-size: 25px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    opacity: 0; /* Start with text hidden */
+    transition: opacity 0.5s ease-in; /* Fade-in effect */
+    display: none; /* Start with title text hidden */
+  }
+
+  .boxClick {
+    animation: anime 5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .btn-77 {
+    position: absolute;
+    bottom: 10px; /* Position button below the box */
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%); /* Center button horizontally */
+    padding: 1.2rem 3rem;
+    border-radius: 999px; /* Rounded corners */
+    background-color: #000;
+    color: #fff;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 3.0s ease-in; /* Fade-in effect */
+    display: none; /* Start with title text hidden */
+    animation: pulse 2s infinite; /* Pulse animation */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and color */
+  }
+
+  .btn-77:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+.circle {
+position: absolute;
+width: 100vw;
+height: 100vh;
+background: #3a6e9a;
+display: none;
+}
+
+.circle div {
+position: absolute;
+top: calc((50% - 10px));
+left: calc((50% - 10px));
+width: 20px;
+height:20px;
+background: #fff;
+border-radius: 50%;
+}
+
+.circle div:nth-child(1) { animation: anim_01 2s forwards;}
+.circle div:nth-child(2) { animation: move_01 2s 2s; }
+.circle div:nth-child(4) { animation: move_03 2s 2s; }
+.circle div:nth-child(3) { animation: move_02 2s 2s; }
+.circle div:nth-child(5) { animation: move_04 2s 2s; }
+
+@keyframes anim_01 {
+0% {   transform: scale(0);}
+20% {  transform: scale(3);}
+50% {  transform: scale(1);}
+90% {  transform: scale(5);}
+100% { transform: scale(0);}
+}
+
+@keyframes move_01 {
+0% {   transform: translate(0) scale(0);}
+20% {  transform: translate(-100px, -100px) scale(1);}
+40% {  transform: translate(-100px, 100px) scale(1);}
+60% {  transform: translate(100px, 100px) scale(1);}
+80% {  transform: translate(100px, -100px) scale(1);}
+100% { transform: translate(0) scale(1);}
+}
+
+@keyframes move_02 {
+0% {   transform: translate(0) scale(0);}
+20% {  transform: translate(-100px, 100px) scale(1);}
+40% {  transform: translate(100px, 100px) scale(1);}
+60% {  transform: translate(100px, -100px) scale(1);}
+80% {  transform: translate(-100px, -100px) scale(1);}
+100% { transform: translate(0) scale(1);}
+}
+
+@keyframes move_03 {
+0% {   transform: translate(0px) scale(0);}
+20% {  transform: translate(100px, 100px) scale(1);}
+40% {  transform: translate(100px, -100px) scale(1);}
+60% {  transform: translate(-100px, -100px) scale(1);}
+80% {  transform: translate(-100px, 100px) scale(1);}
+100% { transform: translate(0) scale(1);}
+}
+
+@keyframes move_04 {
+0% {   transform: translate(0px) scale(0);}
+20% {  transform: translate(100px, -100px) scale(1);}
+40% {  transform: translate(-100px, -100px) scale(1);}
+60% {  transform: translate(-100px, 100px) scale(1);}
+80% {  transform: translate(100px, 100px) scale(1);}
+100% { transform: translate(0) scale(1);}
+}
+
+/* -----------------------
+animation big 広がる玉 4s~5.6s
+----------------------- */
+.big {
+position: absolute;
+width: 100vw;
+height: 100vh;
+display: none;
+}
+.big div{
+position: absolute;
+top: calc((50% - 1500px));
+left: calc((50% - 1500px));
+width: 3000px;
+height: 3000px;
+border-radius: 50%;
+transform: scale(0);
+}
+
+.big div:nth-child(1) { background: #fffcee; animation: big .5s 4s forwards;}
+.big div:nth-child(2) { background: #bd8e99; animation: big .5s 4.5s forwards;}
+.big div:nth-child(3) { background: #9e3f57;  animation: big .5s 5s forwards;}
+
+@keyframes big {
+0% {  transform: scale(0);}
+100% {transform: scale(1);}
+}
+
+/* -----------------------
+animation tri 突き上げる三角 ~5.9s
+----------------------- */
+.tri {
+position: absolute;
+bottom: -390vw;
+  /* left: -147vw; */
+width: 0;
+height: 0;
+border-left: 150vw solid rgba(255, 0, 0, 0);
+border-right: 150vw solid rgba(255, 0, 0, 0);
+border-bottom: 300vw solid  rgb(255, 251, 189);
+animation: tri .6s 5.3s linear forwards;
+display: none;
+}
+
+@keyframes tri {
+100% {transform: translateY(-305vw); }
+}
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+  }
+
+  @keyframes anime {
+    0% {
+      width: 60px;
+      height: 60px;
+      background: #f0f0f0;
+      box-shadow: 0 0 0 #cccccc,
+                  0 0 0 #ffffff,
+                  10px 10px 10px #cccccc inset,
+                  -10px -10px 10px #ffffff inset;
+    }
+    25% {
+      width: 60px;
+      height: 60px;
+      background: #f8f8f8;
+      box-shadow: 10px 10px 10px #cccccc,
+                  10px 10px 10px #ffffff,
+                  0 0 0 #cccccc inset,
+                  0 0 0 #ffffff inset;
+    }
+    50% {
+      width: 60px;
+      height: 240px;
+      background: #f8f8f8;
+      box-shadow: 10px 10px 10px #cccccc,
+                  10px 10px 10px #ffffff,
+                  0 0 0 #cccccc inset,
+                  0 0 0 #ffffff inset;
+    }
+    100% {
+      width: 325px;
+      height: 240px;
+      background: #fafafa;
+      box-shadow: 40px 40px 40px #cccccc,
+                  0 0 0 #ffffff,
+                  0 0 0 #cccccc inset,
+                  2px 2px 2px #ffffff inset;
+    }
+  }
+
+  .home{
+    box-sizing: border-box;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .heading{
+    position: relative;
+    top: 90px;
+    font-size: 50px;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    font-family: Ronysiswadi;
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+  
+
+.card {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    background: burlywood;
+    border-radius: 20px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.5) 0px 18px 36px -18px inset;
+}
+
+
+.card img{
+    border-radius: 20px;
+}
+
+
+
+.inside {
+  height: 100vh;
+  width: 100vh;
+  z-index: 1;
+}
+
+
+.card .content p {
+    font-size: 25px;
+    position: relative;
+    font-family: Ronysiswadi;
+    top:10px;
+}
+
+.card .content {
+    transition: 1.5s ease-in-out;
+    z-index: 1;
+    opacity: 1;
+    animation:tracking-in-expand-forward-bottom 5s ease forwards;
+}
+
+@keyframes tracking-in-expand-forward-bottom{0%{letter-spacing:-.2em;transform:translateZ(-700px) translateY(100px);opacity:0}40%{opacity:.6}100%{transform:translateZ(0) translateY(0);opacity:1}}
+
+
+@keyframes glowing {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Teenage Engineering [EP-133 K.O. II] - Buttons */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1.25em;
+    position: relative;
+    top: 135px;
+    animation: fadeInAnimation 3s ease 1 forwards;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+  }
+  .button_pair {
+    display: flex;
+    column-gap: 1.5em;
+  }
+  .button_pair1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.9em;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    background-color: #171717;
+    border-radius: 5px;
+    
+  }
+  
+  .button1 {
+    width: 5.7em;
+    height: 5.7em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #c7c3c0;
+    box-shadow: rgba(0, 0, 0, 0.377) 10px 10px 8px,
+      #ffffff 1.5px 1.5px 2px 0px inset, #c7c3c0 -3.2px -3.2px 8px 0px inset;
+    cursor: pointer;
+    font-family: Montserrat;
+    transition: 0.1s ease-in-out;
+  }
+  .button2 {
+    width: 5.7em;
+    height: 5.7em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #c7c3c0;
+    box-shadow: rgba(0, 0, 0, 0.377) 10px 10px 8px,
+      #ffffff 1.5px 1.5px 2px 0px inset, #c7c3c0 -3.2px -3.2px 8px 0px inset;
+    cursor: pointer;
+    font-family: Montserrat;
+    transition: 0.1s ease-in-out;
+  }
+  .svg1 {
+    fill: #5f5f5f;
+    width: 25px;
+    height: 25px;
+    transition: 0.1s ease-in-out;
+  }
+  .svg2 {
+    fill: #5f5f5f;
+    width: 25px;
+    height: 25px;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .button3 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 5.7em;
+    height: 5.7em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #d42a02;
+    box-shadow: rgba(0, 0, 0, 0.377) 10px 10px 8px, #fb702c 2px 2px 10px 0px inset,
+      #d42a02 -4px -4px 1px 0px inset;
+    cursor: pointer;
+    font-family: Montserrat;
+    transition: 0.1s ease-in-out;
+  }
+  .button4 {
+    width: 5.7em;
+    height: 5.7em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #545251;
+    box-shadow: rgba(0, 0, 0, 0.377) 10px 10px 8px, #a8a6a4 1.5px 1.5px 1px 0px inset, #545251 -3.2px -3.2px 8px 0px inset;
+    cursor: pointer;
+    font-family: Montserrat;
+    transition: 0.1s ease-in-out;
+    
+}
+  
+  .button_text {
+    color: white;
+    padding-top: 0.9em;
+    letter-spacing: 0.075em;
+    font-size: 0.85em;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .text {
+    font-family: Montserrat;
+    text-align: center;
+    font-size: 0.65em;
+  }
+  
+  .button1:active,
+  .button2:active {
+    box-shadow: rgba(0, 0, 0, 0.377) 0px 0px 0px, inset 0.5px 0.5px 4px #000000,
+      #c7c3c0 -3.2px -3.2px 8px 0px inset;
+  }
+  .button1:active .svg1,
+  .button2:active .svg2 {
+    scale: 0.95;
+  }
+  .button3:active {
+    box-shadow: rgba(0, 0, 0, 0.377) 0px 0px 0px, inset 0.5px 0.5px 4px #000000,
+      #d42a02 -3.2px -3.2px 8px 0px inset;
+  }
+  .button3:active .button_text {
+    transform: translateY(0.5px);
+  }
+  .button4:active {
+    box-shadow: rgba(0, 0, 0, 0.377) 0px 0px 0px, inset 0.5px 0.5px 4px #000000,
+      #545251 -3.2px -3.2px 8px 0px inset;
+  }
+  .button4:active .button_text {
+    transform: translateY(0.5px);
+  }
+  
+  .loader {
+    position: relative;
+    border-radius: 10px;
+    height: 20px;
+    width: 13500px;
+    left: 6750px;
+    background-color: #aaa;
+    animation: fadeInAnimation 3s ease 1 forwards, move-arrows 0.5s linear infinite;
+    transform-origin: left;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABDZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDkuMS1jMDAxIDc5LjE0NjI4OTk3NzcsIDIwMjMvMDYvMjUtMjM6NTc6MTQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3Y2M3MzIzZC0xZjc3LTQ1MmYtOGFjZS1jY2JkZWIwNTMyZWIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTUzNjQwRkU3RDNBMTFFRTk5QTg4MkQ5REZCNTY1NzAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTUzNjQwRkQ3RDNBMTFFRTk5QTg4MkQ5REZCNTY1NzAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI1LjAgKE1hY2ludG9zaCkiIHhtcDpDcmVhdGVEYXRlPSIyMDIzLTExLTE3VDE2OjU0OjA4KzA4OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMy0xMS0yMFQwNTozNDoxNyswODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMy0xMS0yMFQwNTozNDoxNyswODowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowRDBDQjlDMjdENEIxMUVFOTU2MkVDNUVBMTUxNTUyMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowRDBDQjlDMzdENEIxMUVFOTU2MkVDNUVBMTUxNTUyMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pj38waoAAAFKSURBVHjanJbbSwJhEMV3pYTQIOgCPogEPQQZRBf6/18zbyiGRD0YRNEFMuwmuZ2BIwTZfuebAz92H2Y8rDtzvk2zLEuoA1BNwuqCURKhwq/7HhgLPftgzWvyDc7BVOg5BkWPiWkCOkLfCjgCqcfEdAeuhN4NsOs1MV2AZ6F/B1S8JjZyTfApGNlUlj0mpg/QomGelsAJr9EmpkcwFJ6mzCdymZguwb1QV+E7cpmY2uBNqLNp2/SaTLmos0Cd7c0h9yjaxPQC+kJdkUYuk0SYtLlGXpN1hmNI1+DGY1JiKIbqH8DA8+KXuWyh1J0wJbJYk/m0rArT1/jvmAiZ7IEtYRhsj149G18D28LfOQwlQiHnrKgLBreMneioVydpLJ6if37IJumU1zx9gTN+F0SZpDy3S4GeGXPs3fMhUV+UoAtk+fUUk0U/AgwAELo+LcAxjVoAAAAASUVORK5CYII=);
+    background-size: auto 100%;
+    rotate: 90deg;
+    top: 175px;
+    display: none;
+}
+
+@keyframes move-arrows {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+@-webkit-keyframes move-arrows {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+.cardBox1 {
+    width: 270px;
+    height: 300px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+                rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 100px;
+}
+
+.cardBox2 {
+    width: 270px;
+    height: 500px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+                rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 150px;
+}
+
+.cardBox3 {
+    width: 270px;
+    height: 380px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+                rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 220px;
+}
+
+.cardBox4 {
+    width: 270px;
+    height: 415px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 260px;
+}
+
+.cardBox5 {
+    width: 270px;
+    height: 365px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 300px;
+}
+
+.cardBox6 {
+    width: 270px;
+    height: 420px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 340px;
+}
+
+.cardBox7 {
+    width: 270px;
+    height: 465px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 385px;
+}
+
+.cardBox8 {
+    width: 270px;
+    height: 435px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 435px;
+}
+
+.cardBox9 {
+    width: 270px;
+    height: 430px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 485px;
+}
+
+.cardBox10 {
+    width: 270px;
+    height: 235px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 530px;
+}
+
+.cardBox11 {
+    width: 270px;
+    height: 515px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 580px;
+}
+
+.cardBox12 {
+    width: 270px;
+    height: 490px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 635px
+}
+
+.cardBox13 {
+    width: 270px;
+    height: 440px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 690px;
+}
+
+.cardBox14 {
+    width: 270px;
+    height: 285px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 740px;
+}
+.cardBox15 {
+    width: 270px;
+    height: 240px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 790px;
+}
+.cardBox16 {
+    width: 270px;
+    height: 300px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 835px;
+}
+.cardBox17 {
+    width: 270px;
+    height: 290px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 890px;
+}
+.cardBox18 {
+    width: 270px;
+    height: 255px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 945px;
+}
+.cardBox19 {
+    width: 270px;
+    height: 485px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1000px;
+}
+.cardBox20 {
+    width: 270px;
+    height: 325px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1055px;
+}
+.cardBox21 {
+    width: 270px;
+    height: 530px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1110px;
+}
+.cardBox22 {
+    width: 270px;
+    height: 215px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1165px;
+}
+.cardBox23 {
+    width: 270px;
+    height: 220px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1220px;
+}
+.cardBox24 {
+    width: 270px;
+    height: 545px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1275px;
+}
+.cardBox25 {
+    width: 270px;
+    height: 495px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1330px;
+}
+.cardBox26 {
+    width: 270px;
+    height: 290px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1385px;
+}
+.cardBox27 {
+    width: 270px;
+    height: 380px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1440px;
+}
+.cardBox28 {
+    width: 270px;
+    height: 285px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1495px;
+}
+.cardBox29 {
+    width: 270px;
+    height: 525px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1550px;
+}
+.cardBox30 {
+    width: 270px;
+    height: 520px;
+    position: relative;
+    display: none;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    top: 1605px;
+}
+
+.cardBox31 {
+  width: 445px;
+  height: 550px;
+  position: relative;
+  display: none;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  top: 1660px;
+}
+
+
+.cardBox1::before {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 150%;
+    background: #40E0D0;
+    background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    animation: glowing01 5s linear infinite;
+    transform-origin: center;
+    animation: glowing 5s linear infinite;
+  }
+  
+  .cardBox2::before {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 150%;
+      background: #40E0D0;
+      background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+      background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+      animation: glowing01 5s linear infinite;
+      transform-origin: center;
+      animation: glowing 5s linear infinite;
+    }
+  
+    .cardBox3::before {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 150%;
+      background: #40E0D0;
+      background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+      background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+      animation: glowing01 5s linear infinite;
+      transform-origin: center;
+      animation: glowing 5s linear infinite;
+    }
+
+    .cardBox4::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox5::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox6::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox7::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox8::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox9::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox10::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox11::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox12::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox13::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox14::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox15::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox16::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox17::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox18::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox19::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox20::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox21::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox22::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox23::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox24::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox25::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox26::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox27::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox28::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox29::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+      .cardBox30::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+
+      .cardBox31::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 150%;
+        background: #40E0D0;
+        background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+        animation: glowing01 5s linear infinite;
+        transform-origin: center;
+        animation: glowing 5s linear infinite;
+      }
+
+      @font-face {
+        font-family: 'Ronysiswadi';
+        src: url('./components/fonts/Ronysiswadi.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .btn-container{
+      height: 20px;
+    }
+
+    /* From Uiverse.io by mrhyddenn */ 
+    .shadow__btn {
+      padding: 10px 20px;
+      border: none;
+      font-size: 40px;
+      color: #fff;
+      border-radius: 7px;
+      letter-spacing: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.5s;
+      transition-property: box-shadow;
+      display: none;
+      position: relative;
+      top: -90px;
+      height: 70px;
+      left: 70px;
+  }
+  
+  
+
+.shadow__btn {
+  background: rgb(0,140,255);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
+}
